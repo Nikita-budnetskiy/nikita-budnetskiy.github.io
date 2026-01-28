@@ -428,3 +428,9 @@ footer{
   font-size: 0.85rem;
   color: var(--muted);
 }
+/* Hero: more breathing room on the left (desktop only) */
+@media (min-width: 1100px){
+  .hero{
+    padding-left: 4vw;
+  }
+}
