@@ -434,3 +434,11 @@ footer{
     padding-left: 4vw;
   }
 }
+.institution{
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+h1{
+  letter-spacing: -0.01em;
+}
