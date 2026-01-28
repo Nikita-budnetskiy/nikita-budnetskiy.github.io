@@ -616,11 +616,17 @@ header{ position: relative; } /* нужно для абсолютного поз
 }
 
 #about p{
-  text-align: left;        /* как на скрине */
-  font-size: 1rem;           /* первый абзац = остальные */
+  text-align: left;
+  font-size: 1rem;
   line-height: 1.75;
-  margin: 0 auto 1.45em;     /* одинаковые отступы */
-  max-width: 70ch;           /* “книжная” ширина строки */
+  margin-bottom: 1.45em;
+  max-width: none;
+}
+
+#about section p,
+#about p{
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* акцент имени */
