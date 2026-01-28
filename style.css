@@ -59,14 +59,64 @@ a{ color: inherit; }
   font-size: 0.95rem;
   padding: 8px 10px;
   border-radius: 999px;
-  border: 1px solid transparent;
-  transition: background 220ms ease, border-color 220ms ease, transform 180ms ease;
+
+  /* key: make it read as interactive */
+  color: var(--muted);
+  cursor: pointer;
+  position: relative;
+
+  /* keep it light */
+  border: 1px solid rgba(107,30,42,0.18);
+  background: rgba(255,255,255,0.35);
+
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    transform 180ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
 }
 
-.nav a:hover{
-  border-color: rgba(107,30,42,0.35);
-  background: rgba(107,30,42,0.08);
-  transform: translateY(-1px);
+/* subtle “link” cue (works even before click) */
+.nav a::after{
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 1px;
+  background: rgba(107,30,42,0.35);
+  opacity: 0;
+  transform: scaleX(0.85);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+@media (hover: hover){
+  .nav a:hover{
+    color: var(--accent);
+    border-color: rgba(107,30,42,0.38);
+    background: rgba(107,30,42,0.06);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+  }
+
+  .nav a:hover::after{
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* mobile tap feedback */
+.nav a:active{
+  transform: scale(0.97);
+  background: rgba(107,30,42,0.10);
+  border-color: rgba(107,30,42,0.42);
+  color: var(--accent);
+}
+
+.nav a:focus-visible{
+  outline: 3px solid rgba(107,30,42,0.28);
+  outline-offset: 3px;
 }
 
 /* ===== Hero ===== */
@@ -559,28 +609,3 @@ header{ position: relative; } /* нужно для абсолютного поз
   color: var(--accent);
 }
 
-/* ===== Navigation: interactive menu cue ===== */
-
-/* базовое состояние ссылок меню */
-.nav a{
-  display: inline-block;
-  cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease,
-    opacity 0.25s ease;
-}
-
-/* hover — только на устройствах с мышью */
-@media (hover: hover){
-  .nav a:hover{
-    transform: translateY(-1px);
-    color: var(--accent);
-  }
-}
-
-/* визуальный отклик при тапе (мобилки) */
-.nav a:active{
-  transform: scale(0.96);
-  opacity: 0.7;
-}
