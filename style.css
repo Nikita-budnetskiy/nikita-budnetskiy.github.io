@@ -383,3 +383,48 @@ footer{
   color: var(--accent);
   font-weight: 600;
 }
+/* ===== 2026 polish pack (safe upgrades) ===== */
+
+/* A) More “museum air” in hero on large screens */
+@media (min-width: 900px){
+  header{
+    padding-top: 72px;
+    padding-bottom: 64px;
+  }
+}
+
+/* B) Subtitle — booklet style */
+.subtitle{
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* C) About — slightly stronger first paragraph */
+#about p:first-of-type{
+  font-size: 1.05rem;
+}
+
+/* D) Events — soft hover (desktop only) */
+@media (hover: hover){
+  .event:hover{
+    background: rgba(107,30,42,0.035);
+  }
+}
+
+/* E) Press quotes styling */
+.press-quote{
+  max-width: 60ch;
+  margin: 0 auto 32px;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.press-quote span{
+  display: block;
+  margin-top: 8px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
