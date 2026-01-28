@@ -177,6 +177,7 @@
 
 <script>
   (function () {
+  document.documentElement.classList.add('js');
     const sections = document.querySelectorAll('section');
     if (!('IntersectionObserver' in window)) {
       sections.forEach(s => s.classList.add('is-visible'));

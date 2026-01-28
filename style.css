@@ -430,7 +430,7 @@ footer{
 }
 /* Hero: more breathing room on the left (desktop only) */
 @media (min-width: 1100px){
-  .hero{
+  header{
     padding-left: 4vw;
   }
 }
@@ -473,8 +473,13 @@ header::after{
   );
 }
 
-/* ===== Micro motion on first scroll (section reveal) ===== */
+/* ===== Micro motion on first scroll (safe reveal) ===== */
 section{
+  opacity: 1;
+  transform: none;
+}
+
+.js section{
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 520ms cubic-bezier(.2,.85,.2,1),
@@ -482,20 +487,13 @@ section{
   will-change: opacity, transform;
 }
 
-section.is-visible{
+.js section.is-visible{
   opacity: 1;
   transform: translateY(0);
 }
 
-/* чтобы первый экран не «прятался» */
-header{
-  opacity: 1;
-  transform: none;
-}
-
-/* уважение к настройке Reduce Motion */
 @media (prefers-reduced-motion: reduce){
-  section{
+  .js section{
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
