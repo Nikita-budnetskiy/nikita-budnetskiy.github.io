@@ -559,64 +559,28 @@ header{ position: relative; } /* нужно для абсолютного поз
   color: var(--accent);
 }
 
-/* ===== Navigation underline (premium subtle) ===== */
+/* ===== Navigation: interactive menu cue ===== */
 
-.main-nav a {
-  position: relative;
-  padding-bottom: 6px;
-}
-
-.main-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background-color: var(--accent);
-  opacity: 0;
-  transform: scaleX(0.6);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-/* active page */
-.main-nav a.active::after {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-/* hover — desktop only */
-@media (hover: hover) {
-  .main-nav a:hover::after {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-}
-
-/* ===== Navigation: interactive text cue ===== */
-
-.main-nav a {
+/* базовое состояние ссылок меню */
+.nav a{
   display: inline-block;
+  cursor: pointer;
   transition:
     transform 0.25s ease,
     color 0.25s ease,
     opacity 0.25s ease;
 }
 
-/* hover on desktop */
-@media (hover: hover) {
-  .main-nav a:hover {
+/* hover — только на устройствах с мышью */
+@media (hover: hover){
+  .nav a:hover{
     transform: translateY(-1px);
     color: var(--accent);
   }
 }
 
-/* tap feedback on mobile */
-.main-nav a:active {
-  transform: scale(0.97);
-  opacity: 0.75;
-}
-
-.main-nav a {
-  cursor: pointer;
+/* визуальный отклик при тапе (мобилки) */
+.nav a:active{
+  transform: scale(0.96);
+  opacity: 0.7;
 }
