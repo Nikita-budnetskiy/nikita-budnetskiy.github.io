@@ -530,3 +530,31 @@ section{
     transition: none !important;
   }
 }
+
+/* ===== Language switch ===== */
+header{ position: relative; } /* нужно для абсолютного позиционирования */
+
+.lang-switch{
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+.lang-switch a{
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.lang-switch a.active{
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.lang-switch a:hover{
+  color: var(--accent);
+}
