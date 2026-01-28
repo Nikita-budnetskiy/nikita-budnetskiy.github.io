@@ -442,3 +442,93 @@ footer{
 h1{
   letter-spacing: -0.01em;
 }
+
+/* ===== Subtle divider under hero ===== */
+
+/* чтобы не было двойной линии: у About убираем верхнюю */
+#about{
+  border-top: none;
+}
+
+/* добавляем тонкий, «редакционный» divider под hero */
+header{
+  position: relative;
+  padding-bottom: 44px; /* чуть больше воздуха перед линией */
+}
+
+header::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(107,30,42,0.22),
+    rgba(231,227,227,0.9),
+    rgba(107,30,42,0.22),
+    transparent
+  );
+}
+
+/* ===== Micro motion on first scroll (section reveal) ===== */
+section{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 520ms cubic-bezier(.2,.85,.2,1),
+              transform 520ms cubic-bezier(.2,.85,.2,1);
+  will-change: opacity, transform;
+}
+
+section.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* чтобы первый экран не «прятался» */
+header{
+  opacity: 1;
+  transform: none;
+}
+
+/* уважение к настройке Reduce Motion */
+@media (prefers-reduced-motion: reduce){
+  section{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== Luxury stagger for Events items ===== */
+.event{
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 520ms cubic-bezier(.2,.85,.2,1),
+              transform 520ms cubic-bezier(.2,.85,.2,1);
+}
+
+#events.is-visible .event{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* небольшая задержка по порядку */
+#events.is-visible .event:nth-child(2){ transition-delay: 40ms; }
+#events.is-visible .event:nth-child(3){ transition-delay: 90ms; }
+#events.is-visible .event:nth-child(4){ transition-delay: 140ms; }
+#events.is-visible .event:nth-child(5){ transition-delay: 190ms; }
+#events.is-visible .event:nth-child(6){ transition-delay: 240ms; }
+#events.is-visible .event:nth-child(7){ transition-delay: 290ms; }
+#events.is-visible .event:nth-child(8){ transition-delay: 340ms; }
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .event{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

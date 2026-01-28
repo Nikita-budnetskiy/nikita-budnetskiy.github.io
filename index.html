@@ -175,5 +175,23 @@
 
 </div>
 
+<script>
+  (function () {
+    const sections = document.querySelectorAll('section');
+    if (!('IntersectionObserver' in window)) {
+      sections.forEach(s => s.classList.add('is-visible'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.12 });
+
+    sections.forEach(s => io.observe(s));
+  })();
+</script>
+
 </body>
 </html>
