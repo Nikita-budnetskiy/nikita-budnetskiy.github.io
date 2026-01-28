@@ -450,11 +450,6 @@ footer{
   font-size: 0.9rem;
 }
 
-/* C) About — slightly stronger first paragraph */
-#about p:first-of-type{
-  font-size: 1.05rem;
-}
-
 /* D) Events — soft hover (desktop only) */
 @media (hover: hover){
   .event:hover{
@@ -609,3 +604,27 @@ header{ position: relative; } /* нужно для абсолютного поз
   color: var(--accent);
 }
 
+/* ===== About: centered column like screenshot ===== */
+#about{
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+#about h2{
+  text-align: left;          /* заголовок слева, но в центре страницы */
+  margin-bottom: 28px;
+}
+
+#about p{
+  text-align: center;        /* как на скрине */
+  font-size: 1rem;           /* первый абзац = остальные */
+  line-height: 1.75;
+  margin: 0 auto 1.45em;     /* одинаковые отступы */
+  max-width: 70ch;           /* “книжная” ширина строки */
+}
+
+/* акцент имени */
+#about p:first-of-type strong{
+  color: var(--accent);
+  font-weight: 600;
+}
