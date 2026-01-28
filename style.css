@@ -616,7 +616,7 @@ header{ position: relative; } /* нужно для абсолютного поз
 }
 
 #about p{
-  text-align: center;        /* как на скрине */
+  text-align: left;        /* как на скрине */
   font-size: 1rem;           /* первый абзац = остальные */
   line-height: 1.75;
   margin: 0 auto 1.45em;     /* одинаковые отступы */
