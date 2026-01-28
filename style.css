@@ -592,3 +592,31 @@ header{ position: relative; } /* нужно для абсолютного поз
     transform: scaleX(1);
   }
 }
+
+/* ===== Navigation: interactive text cue ===== */
+
+.main-nav a {
+  display: inline-block;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* hover on desktop */
+@media (hover: hover) {
+  .main-nav a:hover {
+    transform: translateY(-1px);
+    color: var(--accent);
+  }
+}
+
+/* tap feedback on mobile */
+.main-nav a:active {
+  transform: scale(0.97);
+  opacity: 0.75;
+}
+
+.main-nav a {
+  cursor: pointer;
+}
