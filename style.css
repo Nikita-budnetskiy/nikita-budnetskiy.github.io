@@ -634,3 +634,35 @@ header{ position: relative; } /* нужно для абсолютного поз
   color: var(--accent);
   font-weight: 600;
 }
+
+/* ===== Hard fix: content must be LEFT-aligned (mobile + all) ===== */
+body > section{
+  text-align: left;
+}
+
+body > section h2{
+  text-align: left;
+}
+
+body > section p{
+  text-align: left !important;
+}
+
+/* ===== Unified content alignment ===== */
+section{
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Section titles */
+section h2{
+  margin-left: 0;
+}
+
+/* Paragraph rhythm */
+section p{
+  max-width: 65ch;
+}
